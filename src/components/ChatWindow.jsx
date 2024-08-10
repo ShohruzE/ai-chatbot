@@ -84,7 +84,7 @@ export default function ChatWindow() {
                 }`}
               >
                 <div
-                  className={`p-4 min-w-9/12 rounded-lg ${
+                  className={`p-4 max-w-3xl rounded-lg ${
                     message.role === "assistant"
                       ? "bg-blue-500 text-white"
                       : "bg-gray-200"
