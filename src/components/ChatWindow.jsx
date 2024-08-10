@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Markdown from "react-markdown";
 
 export default function ChatWindow() {
   const [message, setMessage] = useState("");
@@ -83,13 +84,13 @@ export default function ChatWindow() {
                 }`}
               >
                 <div
-                  className={`p-4 rounded-lg ${
+                  className={`p-4 max-w-3xl rounded-lg ${
                     message.role === "assistant"
                       ? "bg-blue-500 text-white"
                       : "bg-gray-200"
                   }`}
                 >
-                  {message.content}
+                  <Markdown>{message.content}</Markdown>
                 </div>
               </div>
             ))}
