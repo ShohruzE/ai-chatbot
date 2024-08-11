@@ -1,29 +1,33 @@
+import Link from "next/link";
+
 export default function ChatSidebar() {
-    return (
-        <div className="w-[260px] h-screen bg-gray-100 flex flex-col gap-4 p-4">
-            <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-2">
-                    <div className="w-12 h-12 bg-black rounded-full"></div>
-                    <div className="flex flex-col">
-                        <div className="text-lg font-semibold">Delta Air Lines</div>
-                        <div className="text-sm text-gray-500">Online</div>
-                    </div>
-                </div>
-                <div className="flex items-center gap-2">
-                    <div className="w-12 h-12 bg-black rounded-full"></div>
-                    <div className="flex flex-col">
-                        <div className="text-lg font-semibold">Delta Air Lines</div>
-                        <div className="text-sm text-gray-500">Online</div>
-                    </div>
-                </div>
-                <div className="flex items-center gap-2">
-                    <div className="w-12 h-12 bg-black rounded-full"></div>
-                    <div className="flex flex-col">
-                        <div className="text-lg font-semibold">Delta Air Lines</div>
-                        <div className="text-sm text-gray-500">Online</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
+  return (
+    <div className="w-full h-full flex flex-col justify-between p-4">
+      {/* Logo */}
+      <div className="text-white mb-4">
+        <div className="text-2xl font-bold">DELTA</div>
+      </div>
+      {/* Menu */}
+      {/* <div className="flex flex-col gap-4">
+        <button className="bg-red-600 text-white py-2 px-4 rounded">
+          Lorem ipsum
+        </button>
+        <button className="bg-red-600 text-white py-2 px-4 rounded">
+          Lorem ipsum
+        </button>
+        <button className="bg-red-600 text-white py-2 px-4 rounded">
+          Lorem ipsum
+        </button>
+      </div> */}
+      {/* Bottom Buttons */}
+      <div className="flex justify-center items-center">
+        <Link
+          href="/"
+          className="bg-red-600 text-white py-2 px-4 rounded text-center w-full"
+        >
+          Exit Delta AI
+        </Link>
+      </div>
+    </div>
+  );
 }
