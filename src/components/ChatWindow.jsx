@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Markdown from "react-markdown";
 
 export default function ChatWindow() {
@@ -8,13 +8,12 @@ export default function ChatWindow() {
   const [messageHistory, setMessageHistory] = useState([
     {
       role: "assistant",
-      content:
-        "Welcome to the Delta Air Lines Customer Support. How can I assist you today?",
+      content: "Hi, my name is Delta AI! How can I assist you?",
     },
   ]);
 
   const sendMessage = async () => {
-    if (!message.trim()) return; // Don't send empty messages
+    if (!message.trim()) return;
 
     setMessageHistory((messageHistory) => [
       ...messageHistory,
@@ -72,45 +71,41 @@ export default function ChatWindow() {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col overflow-x-hidden">
-      <div className="flex flex-col gap-4 p-4 justify-center items-center flex-grow">
-        <div className="w-[1000px] h-full border-black border-4 p-4 flex flex-col">
-          <div className="grow flex flex-col gap-8 overflow-y-scroll">
-            {messageHistory.map((message, index) => (
-              <div
-                key={index}
-                className={`flex ${
-                  message.role === "assistant" ? "justify-start" : "justify-end"
-                }`}
-              >
-                <div
-                  className={`p-4 max-w-3xl rounded-lg ${
-                    message.role === "assistant"
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200"
-                  }`}
-                >
-                  <Markdown>{message.content}</Markdown>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="shrink-0 flex flex-row gap-4">
-            <input
-              type="text"
-              className="w-full h-12 border border-gray-300 rounded-md p-4"
-              placeholder="Type a message..."
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-            <button
-              className="border-black bg-slate-500 text-white border-2 rounded-lg px-2"
-              onClick={sendMessage}
+    <div className="flex flex-col flex-grow justify-center min-w-8/12 bg-gray-100 p-4">
+      <div className="flex-grow overflow-y-auto">
+        {messageHistory.map((message, index) => (
+          <div
+            key={index}
+            className={`flex ${
+              message.role === "assistant" ? "justify-start" : "justify-end"
+            } mb-4`}
+          >
+            <div
+              className={`px-4 py-2 max-w-5xl rounded-lg ${
+                message.role === "assistant"
+                  ? "bg-blue-500 text-white"
+                  : "bg-slate-500 text-white"
+              }`}
             >
-              Send
-            </button>
+              <Markdown>{message.content}</Markdown>
+            </div>
           </div>
-        </div>
+        ))}
+      </div>
+      <div className="flex mt-4">
+        <input
+          type="text"
+          className="flex-grow px-4 py-2 border border-gray-300 rounded-md"
+          placeholder="Message Delta AI"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button
+          className="ml-2 px-4 py-2 bg-red-600 text-white rounded-md"
+          onClick={sendMessage}
+        >
+          Send
+        </button>
       </div>
     </div>
   );

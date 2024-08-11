@@ -43,9 +43,11 @@ export default function Home() {
           <p className="mt-4 text-lg">
             Your Personal Assistant for Managing Your Flights and Profile
           </p>
-          <button className="mt-8 bg-red-600 text-white px-6 py-3">
-            Get Started Now
-          </button>
+          <Link href="chat/">
+            <button className="mt-8 bg-red-600 text-white px-6 py-3">
+              Get Started Now
+            </button>
+          </Link>
         </div>
       </section>
 
