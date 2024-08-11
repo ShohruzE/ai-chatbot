@@ -39,7 +39,9 @@ export default function Home() {
         <div className="container mx-auto py-24">
         <h1 className="text-4xl font-bold">Welcome to Delta Air Lines Customer Support Bot</h1>
           <p className="mt-4 text-lg">Your Personal Assistant for Managing Your Flights and Profile</p>
-          <button className="mt-8 bg-red-600 text-white px-6 py-3">Get Started Now</button>
+          <link href="/root/chat/">
+            <button className="mt-8 bg-red-600 text-white px-6 py-3">Get Started Now</button>
+          </link>
         </div>
       </section>
 
